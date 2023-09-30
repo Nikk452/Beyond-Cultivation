@@ -4,7 +4,8 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"TrunkPlacerTypeInvoker",
-		"FoliagePlacerTypeInvoker"
+		"FoliagePlacerTypeInvoker",
+		"HorseEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

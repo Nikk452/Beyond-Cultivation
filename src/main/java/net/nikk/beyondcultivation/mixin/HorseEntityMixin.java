@@ -17,10 +17,9 @@ public abstract class HorseEntityMixin extends LivingEntity {
     protected HorseEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
-    @Inject(method = "createPlayerAttributes", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "createBaseHorseAttributes", at = @At("RETURN"), cancellable = true)
     private static void setMaxHealthAttribute(CallbackInfoReturnable<DefaultAttributeContainer.Builder> cir){
         DefaultAttributeContainer.Builder builder = cir.getReturnValue();
-        int custom_health = 4;
-        builder.add(EntityAttributes.GENERIC_MAX_HEALTH,custom_health);
+        builder.add(EntityAttributes.HORSE_JUMP_STRENGTH,1.5f).add(EntityAttributes.GENERIC_MAX_HEALTH, 530.0).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.45);
     }
 }
