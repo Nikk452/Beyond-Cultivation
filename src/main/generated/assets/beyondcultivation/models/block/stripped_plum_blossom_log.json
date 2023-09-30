@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "beyondcultivation:block/stripped_plum_blossom_log_top",
+    "side": "beyondcultivation:block/stripped_plum_blossom_log"
+  }
+}

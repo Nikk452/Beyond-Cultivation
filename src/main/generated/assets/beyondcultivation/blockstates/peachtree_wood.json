@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "beyondcultivation:block/peachtree_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "beyondcultivation:block/peachtree_wood"
+    },
+    "axis=z": {
+      "model": "beyondcultivation:block/peachtree_wood",
+      "x": 90
+    }
+  }
+}

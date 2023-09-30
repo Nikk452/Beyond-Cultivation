@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "beyondcultivation:block/plum_blossom_log",
+    "side": "beyondcultivation:block/plum_blossom_log"
+  }
+}

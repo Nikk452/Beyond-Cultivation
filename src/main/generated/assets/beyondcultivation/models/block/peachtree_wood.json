@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "beyondcultivation:block/peachtree_log",
+    "side": "beyondcultivation:block/peachtree_log"
+  }
+}
