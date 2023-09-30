@@ -5,7 +5,8 @@
 	"mixins": [
 		"TrunkPlacerTypeInvoker",
 		"FoliagePlacerTypeInvoker",
-		"HorseEntityMixin"
+		"ServerWorldMixin",
+		"ModEntityDataSaverMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
