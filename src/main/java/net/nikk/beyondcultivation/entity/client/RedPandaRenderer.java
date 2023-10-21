@@ -26,7 +26,6 @@ public class RedPandaRenderer extends MobEntityRenderer<RedPandaEntity, RedPanda
         } else {
             matrixStack.scale(1f, 1f, 1f);
         }
-
         super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
     }
 }

@@ -26,9 +26,9 @@ public class ServerWorldMixin {
     @ModifyVariable(method = "spawnEntity", at = @At(value = "HEAD"), ordinal = 0)
     private Entity injected(Entity entity) {
         if(entity instanceof HorseEntity){
+            NbtCompound nbt = ((IEntityDataSaver)entity).getPersistentData();
             Random random = Random.create();
-            if(random.nextBetween(1,100)>99){
-                NbtCompound nbt = ((IEntityDataSaver)entity).getPersistentData();
+            if(nbt.getBoolean("thousand_lee") || random.nextBetween(1,100)>99){
                 nbt.putBoolean("thousand_lee",true);
                 int stat_amount = random.nextBetween(50,110);
                 AttributeData.addHealth((LivingEntity) entity,1000*stat_amount/100,"qi_health_boost","56056c4f-f20c-40e1-836d-7e64ea6717a8");

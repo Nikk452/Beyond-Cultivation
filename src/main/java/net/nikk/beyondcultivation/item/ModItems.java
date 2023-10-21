@@ -51,6 +51,10 @@ public class ModItems {
             new SpawnEggItem(ModEntities.RED_PANDA, 0xb8652e, 0x000000, new FabricItemSettings()));
     public static final Item QILIN_SPAWN_EGG = registerItem("qilin_spawn_egg",
             new SpawnEggItem(ModEntities.QILIN, 0x09652e, 0xa3900f, new FabricItemSettings()));
+    public static final Item SPIRIT_FOX_SPAWN_EGG = registerItem("spirit_fox_spawn_egg",
+            new SpawnEggItem(ModEntities.SPIRIT_FOX, 0xf9652e, 0x09900f, new FabricItemSettings()));
+    //public static final Item THOUSAND_LEE_HORSE_SPAWN_EGG = registerItem("thousand_lee_horse_spawn_egg",
+    //        new SpawnEggItem(EntityTy, 0x09652e, 0xa3900f, new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(BCMod.MOD_ID, name), item);
@@ -62,6 +66,8 @@ public class ModItems {
     private static void itemGroupSpawnEgg(FabricItemGroupEntries entries) {
         entries.add(TIGER_SPAWN_EGG);
         entries.add(RED_PANDA_SPAWN_EGG);
+        entries.add(QILIN_SPAWN_EGG);
+        entries.add(SPIRIT_FOX_SPAWN_EGG);
     }
     public static void registerModItems() {
         BCMod.LOGGER.info("Registering Mod Items for " + BCMod.MOD_ID);

@@ -12,6 +12,8 @@ public class ModModelLayers {
     public static final EntityModelLayer QILIN =
             new EntityModelLayer(new Identifier(BCMod.MOD_ID, "qilin"), "main");
 
+    public static final EntityModelLayer SPIRIT_FOX =
+            new EntityModelLayer(new Identifier(BCMod.MOD_ID, "spirit_fox"), "main");
     //public static final EntityModelLayer MAGIC_PROJECTILE =
     //        new EntityModelLayer(new Identifier(BCMod.MOD_ID, "magic_projectile"), "main");
 }

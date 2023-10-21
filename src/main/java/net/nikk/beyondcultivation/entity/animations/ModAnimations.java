@@ -5,4 +5,5 @@ import net.minecraft.client.render.entity.animation.Animation;
 public class ModAnimations {
 
     public static final Animation TIGER_STATIC = Animation.Builder.create(0f).build();
+    public static final Animation TIGER_WALK = Animation.Builder.create(0f).build();
 }

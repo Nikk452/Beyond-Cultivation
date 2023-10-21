@@ -7,6 +7,7 @@ import net.nikk.beyondcultivation.block.ModBlocks;
 import net.nikk.beyondcultivation.entity.ModEntities;
 import net.nikk.beyondcultivation.entity.custom.QilinEntity;
 import net.nikk.beyondcultivation.entity.custom.RedPandaEntity;
+import net.nikk.beyondcultivation.entity.custom.SpiritFoxEntity;
 import net.nikk.beyondcultivation.entity.custom.TigerEntity;
 
 public class ModRegistries {
@@ -19,6 +20,7 @@ public class ModRegistries {
         FabricDefaultAttributeRegistry.register(ModEntities.TIGER, TigerEntity.createTigerAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.RED_PANDA, RedPandaEntity.createRedPandaAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.QILIN, QilinEntity.createQilinAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.SPIRIT_FOX, SpiritFoxEntity.createSpiritFoxAttributes());
     }
     private static void registerFlammables() {
         FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PEACHTREE_LOG, 5, 5);

@@ -38,5 +38,8 @@ public class BCModClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.QILIN, QilinModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.QILIN, QilinRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SPIRIT_FOX, SpiritFoxModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.SPIRIT_FOX, SpiritFoxRenderer::new);
     }
 }
