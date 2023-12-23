@@ -14,7 +14,7 @@ public class ModBlockEntities {
     //        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(MCCourseMod.MOD_ID, "gem_empowering_block_entity"),
     //                FabricBlockEntityTypeBuilder.create(GemEmpoweringStationBlockEntity::new,
     //                        ModBlocks.GEM_EMPOWERING_STATION).build(null));
-    public static final BlockEntityType<ModSignBlockEntity> MOD_SIGN_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+    /**public static final BlockEntityType<ModSignBlockEntity> MOD_SIGN_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
             new Identifier(BCMod.MOD_ID, "mod_sign_entity"),
             FabricBlockEntityTypeBuilder.create(ModSignBlockEntity::new,
                     ModBlocks.PEACHTREE_SIGN, ModBlocks.PEACHTREE_WALL_SIGN).build());
@@ -23,6 +23,7 @@ public class ModBlockEntities {
             new Identifier(BCMod.MOD_ID, "mod_hanging_sign_entity"),
             FabricBlockEntityTypeBuilder.create(ModHangingSignBlockEntity::new,
                     ModBlocks.PEACHTREE_HANGING_SIGN, ModBlocks.PEACHTREE_HANGING_WALL_SIGN).build(null));
+    */
     public static void registerBlockEntities() {
         BCMod.LOGGER.info("Registering Block Entities for " + BCMod.MOD_ID);
 

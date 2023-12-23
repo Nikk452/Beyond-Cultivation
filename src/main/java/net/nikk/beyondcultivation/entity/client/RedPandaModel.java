@@ -4,13 +4,16 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 import net.nikk.beyondcultivation.entity.animations.ModAnimations;
 import net.nikk.beyondcultivation.entity.custom.RedPandaEntity;
 
 public class RedPandaModel <T extends RedPandaEntity> extends SinglePartEntityModel<T> {
     private final ModelPart redpanda;
+    private final ModelPart head;
     public RedPandaModel(ModelPart root) {
         this.redpanda = root.getChild("redpanda");
+        this.head = redpanda.getChild("head");
     }
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
@@ -37,14 +40,20 @@ public class RedPandaModel <T extends RedPandaEntity> extends SinglePartEntityMo
     @Override
     public void setAngles(RedPandaEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.getPart().traverse().forEach(ModelPart::resetTransform);
-        //this.setHeadAngles(entity, netHeadYaw, headPitch, ageInTicks);
+        this.setHeadAngles(netHeadYaw, headPitch);
 
         this.animateMovement(ModAnimations.TIGER_STATIC, limbSwing, limbSwingAmount, 2f, 2.5f);
         this.updateAnimation(entity.idleAnimationState, ModAnimations.TIGER_STATIC, ageInTicks, 1f);
         this.updateAnimation(entity.attackAnimationState, ModAnimations.TIGER_STATIC, ageInTicks, 1f);
         this.updateAnimation(entity.sitAnimationState, ModAnimations.TIGER_STATIC, ageInTicks, 1f);
     }
+    private void setHeadAngles(float headYaw, float headPitch) {
+        headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
+        headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
 
+        this.head.yaw = headYaw * 0.017453292F;
+        this.head.pitch = headPitch * 0.017453292F;
+    }
     @Override
     public ModelPart getPart() {
         return redpanda;

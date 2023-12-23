@@ -15,6 +15,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.nikk.beyondcultivation.BCMod;
 import net.nikk.beyondcultivation.block.custom.*;
+import net.nikk.beyondcultivation.block.entity.ModBlockEntities;
 import net.nikk.beyondcultivation.item.ModItemGroup;
 import net.nikk.beyondcultivation.util.ModWoodTypes;
 import net.nikk.beyondcultivation.world.tree.PeachTreeSaplingGenerator;
@@ -52,7 +53,7 @@ public class ModBlocks {
     public static final Block PLUM_BLOSSOM_SAPLING = registerBlock("plum_blossom_sapling",
             new ModSaplingBlock(new PeachTreeSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.CHERRY_SAPLING)));
 
-    public static final Block PEACHTREE_SIGN = registerBlockWithoutBlockItem("peachtree_sign",
+    /**public static final Block PEACHTREE_SIGN = registerBlockWithoutBlockItem("peachtree_sign",
             new ModStandingSignBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_SIGN), ModWoodTypes.PEACHTREE));
     public static final Block PEACHTREE_WALL_SIGN = registerBlockWithoutBlockItem("peachtree_wall_sign",
             new ModWallSignBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_WALL_SIGN), ModWoodTypes.PEACHTREE));
@@ -60,7 +61,8 @@ public class ModBlocks {
             new ModHangingSignBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_HANGING_SIGN), ModWoodTypes.PEACHTREE));
     public static final Block PEACHTREE_HANGING_WALL_SIGN = registerBlockWithoutBlockItem("peachtree_hanging_wall_sign",
             new ModWallHangingSignBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_WALL_HANGING_SIGN), ModWoodTypes.PEACHTREE));
-    private static Block registerBlockWithoutBlockItem(String name, Block block) {
+    */
+     private static Block registerBlockWithoutBlockItem(String name, Block block) {
         return Registry.register(Registries.BLOCK, new Identifier(BCMod.MOD_ID, name), block);
     }
 
@@ -72,11 +74,12 @@ public class ModBlocks {
     private static Item registerBlockItem(String name, Block block) {
         Item temp = Registry.register(Registries.ITEM, new Identifier(BCMod.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings()));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> entries.add(temp));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> entries.add(temp));
         return temp;
     }
 
     public static void registerModBlocks() {
         BCMod.LOGGER.info("Registering ModBlocks for " + BCMod.MOD_ID);
+        ModBlockEntities.registerBlockEntities();
     }
 }

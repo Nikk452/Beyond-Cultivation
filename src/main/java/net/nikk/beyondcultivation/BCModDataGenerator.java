@@ -22,7 +22,7 @@ public class BCModDataGenerator implements DataGeneratorEntrypoint {
 		//pack.addProvider(ModAdvancementProvider::new);
 		//pack.addProvider(ModPOITagProvider::new);
 		//pack.addProvider(ModFluidTagProvider::new);
-		//pack.addProvider(ModWorldGenerator::new);
+		//pack.addProvider(ModWorldDataGen::new);
 	}
 
 	@Override

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "beyondcultivation:peachtree_log",
+    "beyondcultivation:peachtree_wood",
+    "beyondcultivation:stripped_peachtree_log",
+    "beyondcultivation:stripped_peachtree_wood",
+    "beyondcultivation:plum_blossom_log",
+    "beyondcultivation:plum_blossom_wood",
+    "beyondcultivation:stripped_plum_blossom_log",
+    "beyondcultivation:stripped_plum_blossom_wood"
+  ]
+}

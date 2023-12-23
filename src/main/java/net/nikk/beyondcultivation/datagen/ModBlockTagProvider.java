@@ -3,6 +3,8 @@ package net.nikk.beyondcultivation.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
+import net.nikk.beyondcultivation.block.ModBlocks;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -13,6 +15,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider{
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-
+        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+                .add(ModBlocks.PEACHTREE_LOG)
+                .add(ModBlocks.PEACHTREE_WOOD)
+                .add(ModBlocks.STRIPPED_PEACHTREE_LOG)
+                .add(ModBlocks.STRIPPED_PEACHTREE_WOOD)
+                .add(ModBlocks.PLUM_BLOSSOM_LOG)
+                .add(ModBlocks.PLUM_BLOSSOM_WOOD)
+                .add(ModBlocks.STRIPPED_PLUM_BLOSSOM_LOG)
+                .add(ModBlocks.STRIPPED_PLUM_BLOSSOM_WOOD);
     }
 }

@@ -9,8 +9,8 @@ import net.nikk.beyondcultivation.entity.custom.TigerEntity;
 
 public class SpiritFoxAttackGoal extends MeleeAttackGoal {
     private final SpiritFoxEntity entity;
-    private int attackDelay = 20;
-    private int ticksUntilNextAttack = 20;
+    private int attackDelay = 1;
+    private int ticksUntilNextAttack = 19;
     private boolean shouldCountTillNextAttack = false;
     public SpiritFoxAttackGoal(PathAwareEntity mob, double speed, boolean pauseWhenMobIdle) {
         super(mob, speed, pauseWhenMobIdle);
@@ -19,8 +19,8 @@ public class SpiritFoxAttackGoal extends MeleeAttackGoal {
     @Override
     public void start() {
         super.start();
-        attackDelay = 20;
-        ticksUntilNextAttack = 20;
+        attackDelay = 2;
+        ticksUntilNextAttack = 10;
     }
 
     @Override

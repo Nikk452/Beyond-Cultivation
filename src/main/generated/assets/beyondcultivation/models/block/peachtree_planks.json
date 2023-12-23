@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "beyondcultivation:block/peachtree_planks"
-  }
-}

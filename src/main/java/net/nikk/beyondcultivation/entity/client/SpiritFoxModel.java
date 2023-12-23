@@ -4,15 +4,18 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 import net.nikk.beyondcultivation.entity.animations.ModAnimations;
 import net.nikk.beyondcultivation.entity.custom.SpiritFoxEntity;
 
 public class SpiritFoxModel <T extends SpiritFoxEntity> extends SinglePartEntityModel<T> {
 
     private final ModelPart spirit_fox;
+    private final ModelPart head;
 
     public SpiritFoxModel(ModelPart root) {
         this.spirit_fox = root.getChild("spirit_fox");
+        this.head = spirit_fox.getChild("head");
     }
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
@@ -101,14 +104,19 @@ public class SpiritFoxModel <T extends SpiritFoxEntity> extends SinglePartEntity
     @Override
     public void setAngles(T entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
         this.getPart().traverse().forEach(ModelPart::resetTransform);
-        //this.setHeadAngles(entity, netHeadYaw, headPitch, ageInTicks);
-
+        this.setHeadAngles(headYaw, headPitch);
         this.animateMovement(ModAnimations.TIGER_STATIC, limbAngle, limbDistance, 2f, 2.5f);
         this.updateAnimation(entity.idleAnimationState, ModAnimations.TIGER_STATIC, animationProgress, 1f);
         this.updateAnimation(entity.attackAnimationState, ModAnimations.TIGER_STATIC, animationProgress, 1f);
         this.updateAnimation(entity.sitAnimationState, ModAnimations.TIGER_STATIC, animationProgress, 1f);
     }
+    private void setHeadAngles(float headYaw, float headPitch) {
+        headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
+        headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
 
+        this.head.yaw = headYaw * 0.017453292F;
+        this.head.pitch = headPitch * 0.017453292F;
+    }
     @Override
     public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
         spirit_fox.render(matrices, vertices, light, overlay, red, green, blue, alpha);

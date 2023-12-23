@@ -5,6 +5,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.nikk.beyondcultivation.block.ModBlocks;
+import net.nikk.beyondcultivation.item.ModItemTags;
 import net.nikk.beyondcultivation.item.ModItems;
 
 import java.util.List;
@@ -28,10 +30,11 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         //        .offerTo(exporter, new Identifier(getRecipeName(ModItems.RAW_PINK_GARNET) + "_"));
 
         //offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.PINK_GARNET, RecipeCategory.MISC, ModBlocks.PINK_GARNET_BLOCK);
-
+        offerPlanksRecipe(exporter, ModBlocks.PEACHTREE_PLANKS, ModItemTags.PEACH_TREES,4);
         //offerSmelting(exporter, List.of(ModItems.RAW_PINK_GARNET, ModBlocks.PINK_GARNET_ORE, ModBlocks.DEEPSLATE_PINK_GARNET_ORE,
         //                ModBlocks.NETHER_PINK_GARNET_ORE, ModBlocks.END_STONE_PINK_GARNET_ORE), RecipeCategory.MISC, ModItems.PINK_GARNET,
         //        0.25f, 200, "pink_garnet");
+        offerSmelting(exporter,List.of(ModItems.TIGER_MEAT),RecipeCategory.FOOD,ModItems.COOKED_TIGER,10,60,"tiger_meat");
         //offerBlasting(exporter, List.of(ModItems.RAW_PINK_GARNET, ModBlocks.PINK_GARNET_ORE, ModBlocks.DEEPSLATE_PINK_GARNET_ORE,
         //                ModBlocks.NETHER_PINK_GARNET_ORE, ModBlocks.END_STONE_PINK_GARNET_ORE), RecipeCategory.MISC, ModItems.PINK_GARNET,
         //        0.25f, 200, "pink_garnet");

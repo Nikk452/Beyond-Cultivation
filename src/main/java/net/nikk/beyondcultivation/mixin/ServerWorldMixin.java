@@ -3,18 +3,20 @@ package net.nikk.beyondcultivation.mixin;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.decoration.ArmorStandEntity;
-import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.HorseEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.spawner.Spawner;
 import net.nikk.beyondcultivation.util.AttributeData;
 import net.nikk.beyondcultivation.util.IEntityDataSaver;
+import net.nikk.beyondcultivation.world.spawner.SpiritFoxSpawner;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Mixin(ServerWorld.class)
 public class ServerWorldMixin {
@@ -28,7 +30,7 @@ public class ServerWorldMixin {
         if(entity instanceof HorseEntity){
             NbtCompound nbt = ((IEntityDataSaver)entity).getPersistentData();
             Random random = Random.create();
-            if(nbt.getBoolean("thousand_lee") || random.nextBetween(1,100)>99){
+            if(nbt.getBoolean("thousand_lee") || entity.isInvulnerable() || random.nextBetween(1,100)>99){
                 nbt.putBoolean("thousand_lee",true);
                 int stat_amount = random.nextBetween(50,110);
                 AttributeData.addHealth((LivingEntity) entity,1000*stat_amount/100,"qi_health_boost","56056c4f-f20c-40e1-836d-7e64ea6717a8");

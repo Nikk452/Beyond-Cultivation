@@ -25,7 +25,7 @@ public class QilinRenderer extends MobEntityRenderer<QilinEntity, QilinModel<Qil
         if(mobEntity.isBaby()) {
             matrixStack.scale(1f, 1f, 1f);
         } else {
-            matrixStack.scale(2f, 2f, 2f);
+            matrixStack.scale(1.5f, 1.5f, 1.5f);
         }
 
         super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);

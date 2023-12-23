@@ -2,8 +2,7 @@ package net.nikk.beyondcultivation.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.loot.condition.AnyOfLootCondition;
-import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.nikk.beyondcultivation.block.ModBlocks;
 
 public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
     public ModBlockLootTableGenerator(FabricDataOutput dataOutput) {
@@ -12,7 +11,21 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        //addDrop(ModBlocks.PINK_GARNET_BLOCK);
+        addDrop(ModBlocks.PEACHTREE_WOOD);
+        addDrop(ModBlocks.PEACHTREE_LOG);
+        addDrop(ModBlocks.STRIPPED_PEACHTREE_WOOD);
+        addDrop(ModBlocks.STRIPPED_PEACHTREE_LOG);
+        addDrop(ModBlocks.PEACHTREE_LEAVES);
+        addDrop(ModBlocks.PEACHTREE_PLANKS);
+        addDrop(ModBlocks.PEACHTREE_SAPLING);
+
+        addDrop(ModBlocks.PLUM_BLOSSOM_LOG);
+        addDrop(ModBlocks.PLUM_BLOSSOM_WOOD);
+        addDrop(ModBlocks.STRIPPED_PLUM_BLOSSOM_LOG);
+        addDrop(ModBlocks.STRIPPED_PLUM_BLOSSOM_WOOD);
+        addDrop(ModBlocks.PLUM_BLOSSOM_LEAVES,leavesDrops(ModBlocks.PLUM_BLOSSOM_LEAVES,ModBlocks.PLUM_BLOSSOM_SAPLING,0.0025f));
+        addDrop(ModBlocks.PLUM_BLOSSOM_PLANKS);
+        addDrop(ModBlocks.PLUM_BLOSSOM_SAPLING);
         //addDrop(ModBlocks.PINK_GARNET_DOOR, doorDrops(ModBlocks.PINK_GARNET_DOOR));
 
         //BlockStatePropertyLootCondition.Builder builder2 = BlockStatePropertyLootCondition.builder(ModBlocks.CAULIFLOWER_CROP)

@@ -24,10 +24,10 @@ public class BCModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PEACHTREE_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PLUM_BLOSSOM_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PLUM_BLOSSOM_LEAVES, RenderLayer.getCutout());
-        BlockEntityRendererFactories.register(ModBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);
-        BlockEntityRendererFactories.register(ModBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignBlockEntityRenderer::new);
+        //BlockEntityRendererFactories.register(ModBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);
+        //BlockEntityRendererFactories.register(ModBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignBlockEntityRenderer::new);
 
-        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.PEACHTREE, TexturedRenderLayers.getSignTextureId(ModWoodTypes.PEACHTREE));
+        //TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.PEACHTREE, TexturedRenderLayers.getSignTextureId(ModWoodTypes.PEACHTREE));
 
 
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.TIGER, TigerModel::getTexturedModelData);

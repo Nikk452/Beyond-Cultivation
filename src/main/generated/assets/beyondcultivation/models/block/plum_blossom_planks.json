@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "beyondcultivation:block/plum_blossom_planks"
-  }
-}

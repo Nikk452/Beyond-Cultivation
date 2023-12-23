@@ -6,7 +6,16 @@
 		"TrunkPlacerTypeInvoker",
 		"FoliagePlacerTypeInvoker",
 		"ServerWorldMixin",
-		"ModEntityDataSaverMixin"
+		"ModEntityDataSaverMixin",
+		"LimbAnimatorAccessor",
+		"BlockEntityTypeMixin",
+		"MinecraftServerMixin",
+		"LivingEntityMixin",
+		"AnimalEntityMixin",
+		"ItemStackMixin"
+	],
+	"client": [
+		"EntityRendererAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1

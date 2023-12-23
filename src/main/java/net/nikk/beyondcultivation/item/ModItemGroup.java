@@ -27,9 +27,10 @@ public class ModItemGroup {
                         entries.add(ModItems.RAT_TAIL);
                         entries.add(ModItems.BOAR_HORN);
                         entries.add(ModItems.SNAKE_VENOM);
+                        entries.add(ModItems.TEST_POISON);
                     }).build());
 
     public static void registerItemGroups() {
-
+        BCMod.LOGGER.info("registering item groups");
     }
 }

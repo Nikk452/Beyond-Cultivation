@@ -4,13 +4,16 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 import net.nikk.beyondcultivation.entity.animations.ModAnimations;
 import net.nikk.beyondcultivation.entity.custom.TigerEntity;
 
 public class TigerModel<T extends TigerEntity> extends SinglePartEntityModel<T> {
     private final ModelPart tiger;
+    private final ModelPart head;
     public TigerModel(ModelPart root) {
         this.tiger = root.getChild("body");
+        this.head = tiger.getChild("bodyfront").getChild("neck").getChild("neck2");
     }
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
@@ -130,12 +133,19 @@ public class TigerModel<T extends TigerEntity> extends SinglePartEntityModel<T> 
     @Override
     public void setAngles(TigerEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.getPart().traverse().forEach(ModelPart::resetTransform);
-        //this.setHeadAngles(entity, netHeadYaw, headPitch, ageInTicks);
+        this.setHeadAngles(netHeadYaw, headPitch);
 
-        this.animateMovement(ModAnimations.TIGER_STATIC, limbSwing, limbSwingAmount, 2f, 2.5f);
-        this.updateAnimation(entity.idleAnimationState, ModAnimations.TIGER_STATIC, ageInTicks, 1f);
+        this.animateMovement(ModAnimations.TIGER_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
+        this.updateAnimation(entity.idleAnimationState, ModAnimations.TIGER_IDLE, ageInTicks, 1f);
         this.updateAnimation(entity.attackAnimationState, ModAnimations.TIGER_STATIC, ageInTicks, 1f);
         this.updateAnimation(entity.sitAnimationState, ModAnimations.TIGER_STATIC, ageInTicks, 1f);
+    }
+    private void setHeadAngles(float headYaw, float headPitch) {
+        headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
+        headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
+
+        this.head.yaw = headYaw * 0.017453292F;
+        this.head.pitch = headPitch * 0.017453292F;
     }
     @Override
     public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
