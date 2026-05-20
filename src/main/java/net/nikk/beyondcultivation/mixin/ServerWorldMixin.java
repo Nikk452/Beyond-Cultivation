@@ -1,13 +1,24 @@
 package net.nikk.beyondcultivation.mixin;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.passive.HorseEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.World;
 import net.minecraft.world.spawner.Spawner;
+import net.nikk.beyondcultivation.BCMod;
+import net.nikk.beyondcultivation.entity.ModEntities;
+import net.nikk.beyondcultivation.entity.custom.SpiritFoxEntity;
+import net.nikk.beyondcultivation.item.ModItems;
+import net.nikk.beyondcultivation.item.custom.PoisonFlaskItem;
 import net.nikk.beyondcultivation.util.AttributeData;
 import net.nikk.beyondcultivation.util.IEntityDataSaver;
 import net.nikk.beyondcultivation.world.spawner.SpiritFoxSpawner;
@@ -17,6 +28,8 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Mixin(ServerWorld.class)
 public class ServerWorldMixin {
@@ -27,6 +40,14 @@ public class ServerWorldMixin {
     }*/
     @ModifyVariable(method = "spawnEntity", at = @At(value = "HEAD"), ordinal = 0)
     private Entity injected(Entity entity) {
+        if(entity instanceof ItemEntity){
+            ItemStack stack = ((ItemEntity) entity).getStack();
+            if(stack.isOf(ModItems.TEST_POISON)){
+                stack.onItemEntityDestroyed((ItemEntity) entity);
+                ((ItemEntity) entity).setDespawnImmediately();
+            }
+        }
+
         if(entity instanceof HorseEntity){
             NbtCompound nbt = ((IEntityDataSaver)entity).getPersistentData();
             Random random = Random.create();

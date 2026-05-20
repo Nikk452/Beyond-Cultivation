@@ -10,6 +10,7 @@ import net.nikk.beyondcultivation.entity.custom.RedPandaEntity;
 import net.nikk.beyondcultivation.entity.custom.TigerEntity;
 import net.nikk.beyondcultivation.item.ModItemGroup;
 import net.nikk.beyondcultivation.item.ModItems;
+import net.nikk.beyondcultivation.screen.ModScreenHandlers;
 import net.nikk.beyondcultivation.util.ModRegistries;
 import net.nikk.beyondcultivation.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
@@ -24,6 +25,7 @@ public class BCMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModScreenHandlers.registerAllScreenHandlers();
 		ModItemGroup.registerItemGroups();
 		ModRegistries.registerModStuff();
 		ModItems.registerModItems();

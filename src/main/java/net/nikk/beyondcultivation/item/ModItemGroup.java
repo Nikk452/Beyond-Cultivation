@@ -8,6 +8,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.nikk.beyondcultivation.BCMod;
+import net.nikk.beyondcultivation.block.ModBlocks;
 
 public class ModItemGroup {
     public static final ItemGroup JIANGHU_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -15,8 +16,6 @@ public class ModItemGroup {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.jianghu_group"))
                     .icon(() -> new ItemStack(ModItems.MARTIAL_MANUAL)).entries((displayContext, entries) -> {
                         entries.add(ModItems.MARTIAL_MANUAL);
-                        entries.add(ModItems.TIGER_SPAWN_EGG);
-                        entries.add(ModItems.RED_PANDA_SPAWN_EGG);
                         entries.add(ModItems.TIGER_SKIN);
                         entries.add(ModItems.TIGER_MEAT);
                         entries.add(ModItems.COOKED_TIGER);
@@ -28,6 +27,7 @@ public class ModItemGroup {
                         entries.add(ModItems.BOAR_HORN);
                         entries.add(ModItems.SNAKE_VENOM);
                         entries.add(ModItems.TEST_POISON);
+                        entries.add(ModBlocks.APERTURE);
                     }).build());
 
     public static void registerItemGroups() {

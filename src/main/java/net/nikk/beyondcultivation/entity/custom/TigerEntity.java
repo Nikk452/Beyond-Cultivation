@@ -61,10 +61,10 @@ public class TigerEntity extends TameableEntity implements Mount {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(0, new SwimGoal(this));
+        this.goalSelector.add(1, new SwimGoal(this));
 
-        this.goalSelector.add(0, new SitGoal(this));
-        this.goalSelector.add(1, new TigerAttackGoal(this, 1.1D, true));
+        this.goalSelector.add(1, new SitGoal(this));
+        this.goalSelector.add(0, new TigerAttackGoal(this, 1.1D, true));
 
         this.goalSelector.add(2, new AnimalMateGoal(this, 1.15D));
         this.goalSelector.add(3, new TemptGoal(this, 1.25D, Ingredient.ofItems(Items.COOKED_BEEF), false));

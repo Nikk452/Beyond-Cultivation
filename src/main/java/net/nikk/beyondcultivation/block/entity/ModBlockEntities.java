@@ -24,6 +24,11 @@ public class ModBlockEntities {
             FabricBlockEntityTypeBuilder.create(ModHangingSignBlockEntity::new,
                     ModBlocks.PEACHTREE_HANGING_SIGN, ModBlocks.PEACHTREE_HANGING_WALL_SIGN).build(null));
     */
+    public static final BlockEntityType<ApertureBlockEntity> APERTURE_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(BCMod.MOD_ID, "aperture_be"),
+                    FabricBlockEntityTypeBuilder.create(ApertureBlockEntity::new,
+                            ModBlocks.APERTURE).build());
+
     public static void registerBlockEntities() {
         BCMod.LOGGER.info("Registering Block Entities for " + BCMod.MOD_ID);
 

@@ -62,7 +62,11 @@ public class ModBlocks {
     public static final Block PEACHTREE_HANGING_WALL_SIGN = registerBlockWithoutBlockItem("peachtree_hanging_wall_sign",
             new ModWallHangingSignBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_WALL_HANGING_SIGN), ModWoodTypes.PEACHTREE));
     */
-     private static Block registerBlockWithoutBlockItem(String name, Block block) {
+
+    public static final Block APERTURE = registerBlock("aperture",
+            new ApertureBlock(FabricBlockSettings.copyOf(Blocks.BEDROCK).nonOpaque().luminance(4)));
+
+    private static Block registerBlockWithoutBlockItem(String name, Block block) {
         return Registry.register(Registries.BLOCK, new Identifier(BCMod.MOD_ID, name), block);
     }
 

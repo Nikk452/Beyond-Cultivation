@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.PotionUtil;
@@ -48,8 +47,9 @@ public class UseItemEvent implements UseItemCallback {
                     PotionUtil.setCustomPotionEffects(poisoned,list);
                     poisoned.getOrCreateNbt().putBoolean("effects",true);
                     if(!user.getAbilities().creativeMode) {
+                        boolean is_potion = itemStack.isOf(Items.POTION);
                         itemStack.decrement(1);
-                        if(itemStack.isOf(Items.POTION)) {
+                        if(is_potion) {
                             if (itemStack.isEmpty()) user.getInventory().offHand.set(0,new ItemStack(Items.GLASS_BOTTLE));
                             else user.getInventory().insertStack(new ItemStack(Items.GLASS_BOTTLE));
                         }

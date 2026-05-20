@@ -1,4 +1,30 @@
 package net.nikk.beyondcultivation.entity.custom;
 
-public class DragonEntity {
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.boss.dragon.EnderDragonEntity;
+import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.Monster;
+import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+public class DragonEntity extends MobEntity implements Monster {
+
+    public DragonEntity(EntityType<? extends MobEntity> entityType, World world) {
+        super(entityType, world);
+    }
+    public static DefaultAttributeContainer.Builder createAttributes() {
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 200)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 100);
+    }
+    @Override
+    protected void initGoals() {
+        super.initGoals();
+    }
 }

@@ -7,6 +7,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.world.World;
+import net.nikk.beyondcultivation.BCMod;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,6 +30,7 @@ public abstract class LivingEntityMixin extends Entity {
                 List<StatusEffectInstance> t = PotionUtil.getPotionEffects(stack);
                 for (StatusEffectInstance statusEffectInstance : t) {
                     ((LivingEntity) (Object) this).addStatusEffect(statusEffectInstance);
+                    BCMod.LOGGER.info("poisoned a person :)");
                 }
             }
         }

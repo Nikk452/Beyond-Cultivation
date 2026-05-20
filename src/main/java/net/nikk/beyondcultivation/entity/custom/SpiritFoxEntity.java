@@ -17,6 +17,8 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
@@ -29,6 +31,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
@@ -41,6 +45,8 @@ import net.nikk.beyondcultivation.BCMod;
 import net.nikk.beyondcultivation.entity.ai.SpiritFoxAttackGoal;
 import net.nikk.beyondcultivation.entity.ai.SpiritFoxDisguiseGoal;
 import net.nikk.beyondcultivation.entity.variant.SpiritFoxVariant;
+import net.nikk.beyondcultivation.item.ModItems;
+import net.nikk.beyondcultivation.item.custom.PoisonFlaskItem;
 import net.nikk.beyondcultivation.util.AttributeData;
 import org.jetbrains.annotations.Nullable;
 
@@ -180,6 +186,24 @@ public class SpiritFoxEntity extends AnimalEntity{
     }
 
     @Override
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        if(player.getStackInHand(hand).isEmpty()){
+            if(!this.getWorld().isClient()){
+                Item item = ModItems.TEST_POISON;
+                ItemStack stack = item.getDefaultStack();
+                ((PoisonFlaskItem) item).setEntityInfo(stack, this);
+                NbtCompound nbt = new NbtCompound();
+                this.writeCustomDataToNbt(nbt);
+                stack.getOrCreateNbt().put("SavedEntity", nbt);
+                player.setStackInHand(hand,stack);
+                this.remove(RemovalReason.DISCARDED);
+            }
+            return ActionResult.success(this.getWorld().isClient);
+        }
+        return super.interactMob(player, hand);
+    }
+
+    @Override
     public boolean damage(DamageSource source, float amount) {
         if(this.isDisguised()) {
             if(this.getTailsNumber()<=3 || amount>20 || random.nextInt(99)>90){
@@ -242,7 +266,9 @@ public class SpiritFoxEntity extends AnimalEntity{
     public SpiritFoxVariant getVariant() {
         return SpiritFoxVariant.byId(this.getTypeVariant() & 255);
     }
-    public boolean shouldSmokeScreen(){return this.dataTracker.get(SMOKESCREEN);}
+    public boolean shouldSmokeScreen(){
+        return this.dataTracker.get(SMOKESCREEN);
+    }
     public int getTailsNumber(){
         return this.dataTracker.get(TAILS_NUMBER);
     }
@@ -279,6 +305,11 @@ public class SpiritFoxEntity extends AnimalEntity{
     }
 
     @Override
+    public boolean isAiDisabled() {
+        return super.isAiDisabled() || !(this.getTailsNumber()>0);
+    }
+
+    @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, nbt.getInt("Variant"));
@@ -303,8 +334,8 @@ public class SpiritFoxEntity extends AnimalEntity{
     }
 
     public void setDisguise(LivingEntity livingEntity) {
-        this.setSmokeScreen(true);
         if(livingEntity!=null){
+            this.setSmokeScreen(true);
             this.disguisedEntity = livingEntity;
             NbtCompound nbtCompound = new NbtCompound();
             livingEntity.writeNbt(nbtCompound);

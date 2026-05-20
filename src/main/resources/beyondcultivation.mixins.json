@@ -1,23 +1,23 @@
 {
-	"required": true,
-	"package": "net.nikk.beyondcultivation.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"TrunkPlacerTypeInvoker",
-		"FoliagePlacerTypeInvoker",
-		"ServerWorldMixin",
-		"ModEntityDataSaverMixin",
-		"LimbAnimatorAccessor",
-		"BlockEntityTypeMixin",
-		"MinecraftServerMixin",
-		"LivingEntityMixin",
-		"AnimalEntityMixin",
-		"ItemStackMixin"
-	],
-	"client": [
-		"EntityRendererAccessor"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "net.nikk.beyondcultivation.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AnimalEntityMixin",
+    "BlockEntityTypeMixin",
+    "FoliagePlacerTypeInvoker",
+    "ItemStackMixin",
+    "LimbAnimatorAccessor",
+    "LivingEntityMixin",
+    "MinecraftServerMixin",
+    "ModEntityDataSaverMixin",
+    "ServerWorldMixin",
+    "TrunkPlacerTypeInvoker"
+  ],
+  "client": [
+    "EntityRendererAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

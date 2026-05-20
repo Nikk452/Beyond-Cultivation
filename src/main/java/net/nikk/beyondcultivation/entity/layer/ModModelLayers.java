@@ -14,6 +14,16 @@ public class ModModelLayers {
 
     public static final EntityModelLayer SPIRIT_FOX =
             new EntityModelLayer(new Identifier(BCMod.MOD_ID, "spirit_fox"), "main");
+    public static final EntityModelLayer BOAR =
+            new EntityModelLayer(new Identifier(BCMod.MOD_ID, "boar"), "main");
+    public static final EntityModelLayer RAT =
+            new EntityModelLayer(new Identifier(BCMod.MOD_ID, "rat"), "main");
+    public static final EntityModelLayer DRAGON =
+            new EntityModelLayer(new Identifier(BCMod.MOD_ID, "dragon"), "main");
+    public static final EntityModelLayer HUANCAT =
+            new EntityModelLayer(new Identifier(BCMod.MOD_ID, "huancat"), "main");
+
+
     //public static final EntityModelLayer MAGIC_PROJECTILE =
     //        new EntityModelLayer(new Identifier(BCMod.MOD_ID, "magic_projectile"), "main");
 }

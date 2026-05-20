@@ -24,12 +24,12 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_PEACHTREE_LOG).log(ModBlocks.STRIPPED_PEACHTREE_LOG).wood(ModBlocks.STRIPPED_PEACHTREE_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.PLUM_BLOSSOM_LOG).log(ModBlocks.PLUM_BLOSSOM_LOG).wood(ModBlocks.PLUM_BLOSSOM_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_PLUM_BLOSSOM_LOG).log(ModBlocks.STRIPPED_PLUM_BLOSSOM_LOG).wood(ModBlocks.STRIPPED_PLUM_BLOSSOM_WOOD);
-        //BlockStateModelGenerator.BlockTexturePool tPlnaks = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PEACHTREE_PLANKS);
-        //BlockStateModelGenerator.BlockTexturePool tplumPlnaks = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PLUM_BLOSSOM_PLANKS);
+        BlockStateModelGenerator.BlockTexturePool tPlnaks = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PEACHTREE_PLANKS);
+        BlockStateModelGenerator.BlockTexturePool tplumPlnaks = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PLUM_BLOSSOM_PLANKS);
         //tPlnaks.family(BlockFamilies.register(ModBlocks.PEACHTREE_PLANKS).sign(ModBlocks.PEACHTREE_SIGN, ModBlocks.PEACHTREE_WALL_SIGN).build());
         //tplumPlnaks.family(BlockFamilies.register(ModBlocks.PEACHTREE_PLANKS).sign(ModBlocks.PEACHTREE_SIGN, ModBlocks.PEACHTREE_WALL_SIGN).build());
         //blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_PEACHTREE_LOG, ModBlocks.PEACHTREE_HANGING_SIGN, ModBlocks.PEACHTREE_HANGING_WALL_SIGN);
-
+        blockStateModelGenerator.registerSimpleState(ModBlocks.APERTURE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PEACHTREE_LEAVES);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PLUM_BLOSSOM_LEAVES);
     }
@@ -52,7 +52,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SNAKE_VENOM, Models.GENERATED);
         itemModelGenerator.register(ModItems.BOAR_HORN , Models.GENERATED);
         itemModelGenerator.register(ModItems.QILIN_ANTLER , Models.GENERATED);
-        itemModelGenerator.register(ModItems.TEST_POISON , Models.GENERATED);
+        //itemModelGenerator.register(ModItems.TEST_POISON , Models.GENERATED);
         itemModelGenerator.register(ModItems.SPIRIT_FOX_SPAWN_EGG,
                 new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
         itemModelGenerator.register(ModItems.TIGER_SPAWN_EGG,
@@ -62,6 +62,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.QILIN_SPAWN_EGG,
                 new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
         itemModelGenerator.register(ModItems.THOUSAND_LEE_HORSE_SPAWN_EGG,
+                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
+        itemModelGenerator.register(ModItems.BOAR_SPAWN_EGG,
+                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
+        itemModelGenerator.register(ModItems.HUANCAT_SPAWN_EGG,
+                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
+        itemModelGenerator.register(ModItems.DRAGON_SPAWN_EGG,
                 new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
     }
 }

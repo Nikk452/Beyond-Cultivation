@@ -8,10 +8,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.nikk.beyondcultivation.BCMod;
-import net.nikk.beyondcultivation.entity.custom.QilinEntity;
-import net.nikk.beyondcultivation.entity.custom.RedPandaEntity;
-import net.nikk.beyondcultivation.entity.custom.SpiritFoxEntity;
-import net.nikk.beyondcultivation.entity.custom.TigerEntity;
+import net.nikk.beyondcultivation.entity.custom.*;
+import net.nikk.beyondcultivation.entity.spells.SpellEntity;
 
 public class ModEntities {
     public static final EntityType<TigerEntity> TIGER = Registry.register(Registries.ENTITY_TYPE,
@@ -30,6 +28,26 @@ public class ModEntities {
             new Identifier(BCMod.MOD_ID, "spirit_fox"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SpiritFoxEntity::new)
                     .dimensions(EntityDimensions.changing(1.5f, 1.2f)).build());
+    public static final EntityType<BoarEntity> BOAR = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(BCMod.MOD_ID, "boar"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BoarEntity::new)
+                    .dimensions(EntityDimensions.fixed(1.1f, 0.8f)).build());
+    public static final EntityType<HuancatEntity> HUANCAT = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(BCMod.MOD_ID, "huancat"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, HuancatEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.8f, 0.6f)).build());
+    public static final EntityType<DragonEntity> DRAGON = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(BCMod.MOD_ID, "dragon"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonEntity::new)
+                    .dimensions(EntityDimensions.fixed(10.1f, 5.8f)).build());
+
+
+    public static final EntityType<SpellEntity> SPELL = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(BCMod.MOD_ID, "spell"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MISC, (EntityType.EntityFactory<SpellEntity>)SpellEntity::new)
+                    .dimensions(EntityDimensions.changing(1.0f,1.0f)).build());
+
+
     public static void registerModEntities() {
         BCMod.LOGGER.info("Registering Mod Entities for " + BCMod.MOD_ID);
     }

@@ -6,10 +6,7 @@ import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.nikk.beyondcultivation.block.ModBlocks;
 import net.nikk.beyondcultivation.entity.ModEntities;
-import net.nikk.beyondcultivation.entity.custom.QilinEntity;
-import net.nikk.beyondcultivation.entity.custom.RedPandaEntity;
-import net.nikk.beyondcultivation.entity.custom.SpiritFoxEntity;
-import net.nikk.beyondcultivation.entity.custom.TigerEntity;
+import net.nikk.beyondcultivation.entity.custom.*;
 import net.nikk.beyondcultivation.event.UseItemEvent;
 
 public class ModRegistries {
@@ -27,6 +24,9 @@ public class ModRegistries {
         FabricDefaultAttributeRegistry.register(ModEntities.RED_PANDA, RedPandaEntity.createRedPandaAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.QILIN, QilinEntity.createQilinAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.SPIRIT_FOX, SpiritFoxEntity.createSpiritFoxAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.BOAR, BoarEntity.createBoarAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.HUANCAT, HuancatEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.DRAGON, DragonEntity.createAttributes());
     }
     private static void registerFlammables() {
         FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PEACHTREE_LOG, 5, 5);
